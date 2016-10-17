@@ -1,0 +1,19 @@
+Package: dddGroundwater
+Type: Package
+Version: 0.0.0.9000
+Authors@R: c(
+            person("Thomas", "Skaugen", , "ths@nve.no", c("aut")),
+            person("Zelalem", "Tadege", , "zme@nve.no", c("aut")),
+            person("Jean-Marie", "Lepioufle", , "jm@nexmodeling.com", c("aut","cre"))
+             )
+Title: Groundwater in the hydrological model ddd
+Description: Process the groundwater in ddd. It computes the state of the
+    saturation layers, the state of the distance distribution,... etc
+Depends:
+    R (>= 3.2.5)
+License: GPL-3
+URL: https://github.com/nexmodeling/dddGroundwater
+BugReports: https://github.com/nexmodeling/dddGroundwater/issues
+Encoding: UTF-8
+LazyData: false
+RoxygenNote: 5.0.1
