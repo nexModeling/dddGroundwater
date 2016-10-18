@@ -9,21 +9,16 @@
 #' @param MAD value of the Mean Annual Discharge
 #' @param area in squared meters
 #' @param modelSaturation list of parameters about the saturation
-#'  list(gtcel=,CapacityUpperLevel=b,mLam=c,varLam=d,distr="qgamma")
+#'  list(gtcel,CapacityUpperLevel,mLam,varLam,distr)
 #' @param modelLayer list of parameters about the Layers
-#'  list(maxL=a,speed=b,nbStepsDelay=c,z=d,distr="dexp",param=c(e), NoL=f)
+#'  list(maxL,speed,nbStepsDelay,z,distr,param,NoL)
 #' @keywords groundwater
 #' @export
 #' @examples
 #'\dontrun{
 #' init()
 #' }
- init <-function(Timeresinsec,
-                 UHMAD,
-                 MAD,
-                 area,
-                 modelSaturation,
-                 modelLayer){
+ init <-function(Timeresinsec,UHMAD,MAD,area,modelSaturation,modelLayer){
 
    Res_prob <- grd.Res_prob(NoL=modelLayer$NoL,UHMAD=UHMAD,MAD=MAD,Timeresinsec=Timeresinsec,area=area,modelSaturation=modelSaturation)
 
