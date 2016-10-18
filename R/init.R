@@ -1,6 +1,6 @@
 #' init
 
-#' The funtion initialize the main features of the groundwater:
+#' The funtion initializes the main features of the groundwater:
 #' - The maximum capacity of each staturation level,
 #' - the Groundwater Storage Capacity (GSC),
 #' - The saturation layers
