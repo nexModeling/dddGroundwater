@@ -29,7 +29,7 @@ grd.Res_prob <-function(NoL,UHMAD,MAD,Timeresinsec,area,modelSaturation) {
   MLev[NoL-1] <- modelSaturation$gtcel
 
   #calculates the groundwater levels probability associated with quantiles Middel er GshRes*GscRes
-  Res_prob <- qgamma(MLev,GshRes,1/GscRes)
+  Res_prob <- stats::qgamma(MLev,GshRes,1/GscRes)
 
   return(Res_prob)
 }
