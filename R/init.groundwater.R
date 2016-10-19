@@ -25,17 +25,17 @@
 init.groundwater <-function(method=NULL,Magkap=NULL,M=NULL,Layers=NULL,Timeresinsec=NULL,UHMAD=NULL,MAD=NULL,area=NULL,modelSaturation=NULL,modelLayer=NULL){
 
   groundwater <- switch(method,
-    "manual"    = init.manual(Magkap=Magkap,M=M,Layers=Layers),
-    "processed" = init.processed(Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,area=modelArea$totarea,modelSaturation=modelSaturation,modelLayer=modelLayer),
-    "load"      = init.load(path=path),
-    "source"    = init.source(path=path),
+    "manual"    = init.groundwater.manual(Magkap=Magkap,M=M,Layers=Layers),
+    "processed" = init.groundwater.processed(Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,area=modelArea$totarea,modelSaturation=modelSaturation,modelLayer=modelLayer),
+    "load"      = init.groundwater.load(path=path),
+    "source"    = init.groundwater.source(path=path),
     (message=paste0("Invalid method:", method,".")))
 
   return(groundwater)
 }
 
 
-init.manual <- function(Magkap,M,Layers){
+init.groundwater.manual <- function(Magkap,M,Layers){
   res <- list(Magkap = Magkap,
                M      = M,
                Layers = Layers)
@@ -43,19 +43,19 @@ init.manual <- function(Magkap,M,Layers){
 }
 
 
-init.load <- function(path){
+init.groundwater.load <- function(path){
   load(paste0(path,"groundwater.rda"))
   return(groundwater)
 }
 
 
-init.source <- function(path){
+init.groundwater.source <- function(path){
   source(paste0(path,"groundwater.R"),local=TRUE)
   return(groundwater)
 }
 
 
-init.processed <- function(Timeresinsec,UHMAD,MAD,area,modelSaturation,modelLayer){
+init.groundwater.processed <- function(Timeresinsec,UHMAD,MAD,area,modelSaturation,modelLayer){
 
   if ( (!is.null(Timeresinsec)) && (!is.null(UHMAD)) && (!is.null(NAD)) && (!is.null(area)) &&
        (!is.null(modelSaturation)) && (!is.null(modelLayer))   ) {

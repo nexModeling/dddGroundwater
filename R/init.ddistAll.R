@@ -19,16 +19,16 @@
 init.ddistAll <-function(method=NULL,path=NULL,S=NULL,ddistx=NULL,ddist=NULL){
 
   ddistAll <- switch(method,
-    "manual"    = init.manual(S=S,ddistx=ddistx,ddist=ddist),
-    "load"      = init.load(path=path),
-    "source"    = init.source(path=path),
+    "manual"    = init.ddistAll.manual(S=S,ddistx=ddistx,ddist=ddist),
+    "load"      = init.ddistAll.load(path=path),
+    "source"    = init.ddistAll.source(path=path),
     (message=paste0("Invalid method:", method,".")))
 
   return(ddistAll)
 }
 
 
-init.manual <- function(S,ddistx,ddist){
+init.ddistAll.manual <- function(S,ddistx,ddist){
   res <- list(S      = S,
               ddistx = ddistx,
               ddist  = ddist )
@@ -36,13 +36,13 @@ init.manual <- function(S,ddistx,ddist){
 }
 
 
-init.load <- function(path){
+init.ddistAll.load <- function(path){
   load(paste0(path,"ddistAll.rda"))
   return(ddistAll)
 }
 
 
-init.source <- function(path){
+init.ddistAll.source <- function(path){
   source(paste0(path,"ddistAll.R"),local=TRUE)
   return(ddistAll)
 }
