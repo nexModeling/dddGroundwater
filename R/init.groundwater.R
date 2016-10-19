@@ -5,6 +5,7 @@
 #' - the Groundwater Storage Capacity (GSC),
 #' - The saturation layers
 #' @param method method for the initialization, "load", "source", "manual"
+#' @param path directory where to get the files
 #' @param Magkap Magkap
 #' @param M  Groundwater Storage Capacity (GSC)
 #' @param Layers saturation layers
