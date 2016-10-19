@@ -15,6 +15,8 @@ init.groundwater(method = NULL, path = NULL, Magkap = NULL, M = NULL,
 \arguments{
 \item{method}{method for the initialization, "load", "source", "manual"}
 
+\item{path}{directory where to get the files}
+
 \item{Magkap}{Magkap}
 
 \item{M}{Groundwater Storage Capacity (GSC)}
