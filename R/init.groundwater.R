@@ -11,7 +11,8 @@
 #' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
 #' @param UHMAD Unit Hydrograph of the Mean Annual Discharge
 #' @param MAD value of the Mean Annual Discharge
-#' @param area in squared meters
+#' @param modelArea
+#' list(totarea,slopesriverarea,nobognoglacarea,bogarea)
 #' @param modelSaturation list of parameters about the saturation
 #'  list(gtcel,CapacityUpperLevel,mLam,varLam,distr)
 #' @param modelLayer list of parameters about the Layers
@@ -22,11 +23,11 @@
 #'\dontrun{
 #' init.groundwater)
 #' }
-init.groundwater <-function(method=NULL,Magkap=NULL,M=NULL,Layers=NULL,Timeresinsec=NULL,UHMAD=NULL,MAD=NULL,area=NULL,modelSaturation=NULL,modelLayer=NULL){
+init.groundwater <-function(method=NULL,path=NULL,Magkap=NULL,M=NULL,Layers=NULL,Timeresinsec=NULL,UHMAD=NULL,MAD=NULL,modelArea=NULL,modelSaturation=NULL,modelLayer=NULL){
 
   groundwater <- switch(method,
     "manual"    = init.groundwater.manual(Magkap=Magkap,M=M,Layers=Layers),
-    "processed" = init.groundwater.processed(Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,area=modelArea$totarea,modelSaturation=modelSaturation,modelLayer=modelLayer),
+    "processed" = init.groundwater.processed(Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,modelArea=modelArea,modelSaturation=modelSaturation,modelLayer=modelLayer),
     "load"      = init.groundwater.load(path=path),
     "source"    = init.groundwater.source(path=path),
     (message=paste0("Invalid method:", method,".")))
@@ -55,11 +56,11 @@ init.groundwater.source <- function(path){
 }
 
 
-init.groundwater.processed <- function(Timeresinsec,UHMAD,MAD,area,modelSaturation,modelLayer){
+init.groundwater.processed <- function(Timeresinsec,UHMAD,MAD,modelArea,modelSaturation,modelLayer){
 
-  if ( (!is.null(Timeresinsec)) && (!is.null(UHMAD)) && (!is.null(NAD)) && (!is.null(area)) &&
+  if ( (!is.null(Timeresinsec)) && (!is.null(UHMAD)) && (!is.null(MAD)) && (!is.null(modelArea)) &&
        (!is.null(modelSaturation)) && (!is.null(modelLayer))   ) {
-    Res_prob <- grd.Res_prob(NoL=modelLayer$NoL,UHMAD=UHMAD,MAD=MAD,Timeresinsec=Timeresinsec,area=area,modelSaturation=modelSaturation)
+    Res_prob <- grd.Res_prob(NoL=modelLayer$NoL,UHMAD=UHMAD,MAD=MAD,Timeresinsec=Timeresinsec,area=modelArea$totarea,modelSaturation=modelSaturation)
 
     Magkap   <- grd.Magkap(NoL=modelLayer$NoL,Res_prob=Res_prob,CapacityUpperLevel=modelSaturation$CapacityUpperLevel)
 

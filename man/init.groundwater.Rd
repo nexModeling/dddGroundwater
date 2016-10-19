@@ -8,9 +8,9 @@ The funtion initializes the main features of the groundwater:
 - the Groundwater Storage Capacity (GSC),
 - The saturation layers}
 \usage{
-init.groundwater(method = NULL, Magkap = NULL, M = NULL, Layers = NULL,
-  Timeresinsec = NULL, UHMAD = NULL, MAD = NULL, area = NULL,
-  modelSaturation = NULL, modelLayer = NULL)
+init.groundwater(method = NULL, path = NULL, Magkap = NULL, M = NULL,
+  Layers = NULL, Timeresinsec = NULL, UHMAD = NULL, MAD = NULL,
+  modelArea = NULL, modelSaturation = NULL, modelLayer = NULL)
 }
 \arguments{
 \item{method}{method for the initialization, "load", "source", "manual"}
@@ -27,7 +27,7 @@ init.groundwater(method = NULL, Magkap = NULL, M = NULL, Layers = NULL,
 
 \item{MAD}{value of the Mean Annual Discharge}
 
-\item{area}{in squared meters}
+\item{modelArea}{list(totarea,slopesriverarea,nobognoglacarea,bogarea)}
 
 \item{modelSaturation}{list of parameters about the saturation
 list(gtcel,CapacityUpperLevel,mLam,varLam,distr)}
