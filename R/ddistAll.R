@@ -31,7 +31,7 @@ ddistAll <-function(Layers,Magkap,nbStepsDelay,X){
 
   res <- list(ddistx = ddistxUpdate,
               ddist  = ddistUpdate,
-              S      = SUpdate)    #(-1)*D
+              S      = SUpdate) 
 
   return(res)
 }
