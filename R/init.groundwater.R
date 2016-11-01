@@ -4,7 +4,7 @@
 #' - The maximum capacity of each staturation level,
 #' - the Groundwater Storage Capacity (GSC),
 #' - The saturation layers
-#' @param method method for the initialization, "load", "source", "manual"
+#' @param method method for the initialization, "load", "manual"
 #' @param path directory where to get the files
 #' @param Magkap Magkap
 #' @param M  Groundwater Storage Capacity (GSC)
@@ -30,7 +30,6 @@ init.groundwater <-function(method=NULL,path=NULL,Magkap=NULL,M=NULL,Layers=NULL
     "manual"    = init.groundwater.manual(Magkap=Magkap,M=M,Layers=Layers),
     "processed" = init.groundwater.processed(Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,modelArea=modelArea,modelSaturation=modelSaturation,modelLayer=modelLayer),
     "load"      = init.groundwater.load(path=path),
-    "source"    = init.groundwater.source(path=path),
     (message=paste0("Invalid method:", method,".")))
 
   return(groundwater)
@@ -47,12 +46,6 @@ init.groundwater.manual <- function(Magkap,M,Layers){
 
 init.groundwater.load <- function(path){
   load(paste0(path,"groundwater.rda"))
-  return(groundwater)
-}
-
-
-init.groundwater.source <- function(path){
-  source(paste0(path,"groundwater.R"),local=TRUE)
   return(groundwater)
 }
 

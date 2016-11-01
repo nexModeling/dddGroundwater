@@ -13,7 +13,7 @@ init.groundwater(method = NULL, path = NULL, Magkap = NULL, M = NULL,
   modelArea = NULL, modelSaturation = NULL, modelLayer = NULL)
 }
 \arguments{
-\item{method}{method for the initialization, "load", "source", "manual"}
+\item{method}{method for the initialization, "load", "manual"}
 
 \item{path}{directory where to get the files}
 

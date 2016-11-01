@@ -1,6 +1,6 @@
-#' ddistAll
+#' stateX.ddistAll
 #'
-#' The function \code{ddistAll()} gathers three processes:
+#' The function \code{stateX.ddistAll()} gathers three processes:
 #' - it informs on current capacity for each level in mm.
 #' - it computes the states (in mm) of each saturation level
 #' - it computes the deficit S (for all sub surface layers, NOT overland flow layer)
@@ -15,7 +15,7 @@
 #' \dontrun{
 #' ddistAll()
 #' }
-ddistAll <-function(Layers,Magkap,nbStepsDelay,X){
+stateX.ddistAll <-function(Layers,Magkap,nbStepsDelay,X){
 
   # States for each saturation level. Informs on current capacity for each level in mm.
   ddistxUpdate <- grd.ddistx(Layers=Layers,Magkap=Magkap,nbStepsDelay=nbStepsDelay)
@@ -31,7 +31,7 @@ ddistAll <-function(Layers,Magkap,nbStepsDelay,X){
 
   res <- list(ddistx = ddistxUpdate,
               ddist  = ddistUpdate,
-              S      = SUpdate) 
+              S      = SUpdate)
 
   return(res)
 }

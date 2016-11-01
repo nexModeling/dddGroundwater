@@ -12,7 +12,7 @@ init.ddistAll(method = NULL, path = NULL, S = NULL, ddistx = NULL,
   ddist = NULL)
 }
 \arguments{
-\item{method}{method for the initialization, "load", "source", "manual"}
+\item{method}{method for the initialization, "load", "manual"}
 
 \item{path}{directory where to get the files}
 
