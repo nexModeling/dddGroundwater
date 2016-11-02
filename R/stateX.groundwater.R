@@ -1,5 +1,5 @@
 #' stateX.layers
-#' The function \code{stateX.layers} updates the saturation levels.
+#' The function \code{stateX.groundwater} updates the saturation levels.
 #' It computes the runoff event that occurs in each of layer, shift the layer by one timestep and then update the layer value with the runoff value
 #' @param NoL number of level zone
 #' @param Layers matrix describing the groundwater; the number of column represent the delay-steps, the row represent the levels (1st is the fastest, the last is the slowest)
@@ -15,7 +15,7 @@
 #' \dontrun{
 #' stateX.layers()
 #' }
-stateX.layers <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay){
+stateX.groundwater <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay){
 
   for (j in 1:NoL){
     # now-event to be updated
