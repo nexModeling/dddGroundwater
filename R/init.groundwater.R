@@ -45,7 +45,10 @@ init.groundwater.manual <- function(Magkap,M,Layers){
 
 
 init.groundwater.load <- function(path){
-  load(paste0(path,"groundwater.rda"))
+  env <- environment()
+  path <- normalizePath(file.path(path,"groundwater.rda"),mustWork = FALSE)
+  load(path, envir=env)
+  groundwater <- get("groundwater",envir = env)
   return(groundwater)
 }
 
