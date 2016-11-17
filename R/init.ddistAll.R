@@ -36,6 +36,9 @@ init.ddistAll.manual <- function(S,ddistx,ddist){
 
 
 init.ddistAll.load <- function(path){
-  load(paste0(path,"ddistAll.rda"))
+  env <- environment()
+  path <- normalizePath(file.path(path,"ddistAll.rda"),mustWork = FALSE)
+  load(path, envir=env)
+  ddistAll <- get("ddistAll",envir = env)
   return(ddistAll)
 }
