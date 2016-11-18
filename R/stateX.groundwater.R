@@ -7,6 +7,8 @@
 #' @param X xcess water
 #' @param layerUH Unit Hydrograph of the layer
 #' @param nbStepsDelay delay-steps of each layer
+#' @param Magkap Magkap
+#' @param M  Groundwater Storage Capacity (GSC)
 #' @return The output is a matrix describing the groundwater.
 #'  the number of column represent the delay-steps, the row represent the levels (1st is the fastest, the last is the slowest)
 #' @keywords groundwater
@@ -15,7 +17,7 @@
 #' \dontrun{
 #' stateX.layers()
 #' }
-stateX.groundwater <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay){
+stateX.groundwater <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay,Magkap,M){
 
   for (j in 1:NoL){
     # now-event to be updated
@@ -30,7 +32,9 @@ stateX.groundwater <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay){
       Layers[j,1:nbStepsDelay[j]] <- qlayer
     }
   }
-  res <- list(Layers = Layers)
+  res <- list(Magkap = Magkap,
+              M      = M,
+              Layers = Layers)
 
   return(res)
 }
