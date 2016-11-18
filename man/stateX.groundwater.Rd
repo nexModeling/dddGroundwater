@@ -6,7 +6,7 @@
 The function \code{stateX.groundwater} updates the saturation levels.
 It computes the runoff event that occurs in each of layer, shift the layer by one timestep and then update the layer value with the runoff value}
 \usage{
-stateX.groundwater(NoL, Layers, ddist, X, layerUH, nbStepsDelay)
+stateX.groundwater(NoL, Layers, ddist, X, layerUH, nbStepsDelay, Magkap, M)
 }
 \arguments{
 \item{NoL}{number of level zone}
@@ -20,6 +20,10 @@ stateX.groundwater(NoL, Layers, ddist, X, layerUH, nbStepsDelay)
 \item{layerUH}{Unit Hydrograph of the layer}
 
 \item{nbStepsDelay}{delay-steps of each layer}
+
+\item{Magkap}{Magkap}
+
+\item{M}{Groundwater Storage Capacity (GSC)}
 }
 \value{
 The output is a matrix describing the groundwater.
